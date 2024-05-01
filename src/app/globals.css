@@ -2,32 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 231 15% 18%;
+    --foreground: 60 10% 96%;
+    --muted: 231 12% 22%;
+    --muted-foreground: 231 12% 72%;
+    --popover: 231 15% 15%;
+    --popover-foreground: 0 0% 100%;
+    --card: 231 15% 16%;
+    --card-foreground: 0 0% 100%;
+    --border: 231 5% 23%;
+    --input: 231 5% 26%;
+    --primary: 60 10% 96%;
+    --primary-foreground: 60 10% 16%;
+    --secondary: 0 0% 25%;
+    --secondary-foreground: 0 0% 85%;
+    --accent: 231 15% 33%;
+    --accent-foreground: 231 15% 93%;
+    --destructive: 9 81% 57%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 60 10% 96%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 231 15% 18%;
+    --foreground: 60 10% 96%;
+    --muted: 231 12% 22%;
+    --muted-foreground: 231 12% 72%;
+    --popover: 231 15% 15%;
+    --popover-foreground: 0 0% 100%;
+    --card: 231 15% 16%;
+    --card-foreground: 0 0% 100%;
+    --border: 231 5% 23%;
+    --input: 231 5% 26%;
+    --primary: 60 10% 96%;
+    --primary-foreground: 60 10% 16%;
+    --secondary: 0 0% 25%;
+    --secondary-foreground: 0 0% 85%;
+    --accent: 231 15% 33%;
+    --accent-foreground: 231 15% 93%;
+    --destructive: 9 81% 57%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 60 10% 96%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  body::-webkit-scrollbar {
+    width: 8px; /* width of the entire scrollbar */
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  body::-webkit-scrollbar-track {
+    background: hsl(var(--background)); /* color of the tracking area */
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted)); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
   }
 }
