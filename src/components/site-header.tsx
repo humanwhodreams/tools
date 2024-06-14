@@ -2,7 +2,6 @@ import Link from "next/link";
 import { SiteBrand } from "./site-brand";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 
 const navs = [
   {
@@ -10,8 +9,8 @@ const navs = [
     href: "/todo",
   },
   {
-    label: "Pomodo",
-    href: "/todo",
+    label: "Pomodoro",
+    href: "/pomodoro",
   },
   {
     label: "Timer",
@@ -40,7 +39,7 @@ export function SiteHeader() {
                   href={nav.href}
                   className={cn(
                     buttonVariants({
-                      variant: "link",
+                      variant: "link", className:"text-base"
                     })
                   )}
                 >

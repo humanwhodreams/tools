@@ -1,7 +1,6 @@
 export interface Todo {
   id: string;
-  title: string;
-  note?: string;
+  todo: string;
   isCompleted: boolean;
   createdAt: string;
 }

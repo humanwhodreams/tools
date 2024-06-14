@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Local Storage Todo App",
-  description: "Storing todos using Local Storage",
+  title: "LST | Productivity tools for planning and focusing on everyday tasks",
+  description: "Productivity tools for planning and focusing on everyday tasks.",
 };
 
 export default function RootLayout({

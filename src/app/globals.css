@@ -68,4 +68,15 @@
     background-color: hsl(var(--muted)); /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
   }
+
+  .scroll-bar::-webkit-scrollbar {
+    width: 8px; /* width of the entire scrollbar */
+  }
+  .scroll-bar-track::-webkit-scrollbar-track {
+    background: hsl(var(--muted)); /* color of the tracking area */
+  }
+  .scroll-bar-thumb::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--background)); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+  }
 }

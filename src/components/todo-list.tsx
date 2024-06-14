@@ -1,36 +1,35 @@
-import { Inbox } from "lucide-react";
 import { Todo } from "@/types/tools";
-import { TodoCard } from "./todo-card";
+import { TodoFactory } from "./todo-factory";
 
 interface Props {
   todos: Todo[];
+  deleteTodo: (id: Todo["id"]) => void;
+  updateTodo: (id: Todo["id"]) => void;
 }
 
-export function TodoList({ todos }: Props) {
+export function TodoList({ todos, updateTodo, deleteTodo }: Props) {
   return (
     <>
       {todos.length > 0 ? (
         <div className="grid gap-4 mt-6">
-          {todos.map((todo, id) => {
-            return <TodoCard key={id} todo={todo} />;
+          {todos.map((todo) => {
+            return (
+              <TodoFactory
+                key={todo.id}
+                todo={todo}
+                deleteTodo={deleteTodo}
+                updateTodo={updateTodo}
+              />
+            );
           })}
         </div>
       ) : (
-        <EmptyState />
+        <div className="mt-24 text-center">
+          <p className="text-xl font-semibold tracking-tight text-muted-foreground">
+            Empty &mdash; No todos
+          </p>
+        </div>
       )}
     </>
-  );
-}
-
-function EmptyState() {
-  return (
-    <div className="flex flex-col items-center justify-center mt-24">
-      <Inbox className="w-10 h-10 text-muted-foreground" />
-      <div className="mt-4 text-center">
-        <p className="text-xl font-semibold tracking-tight scroll-m-20 text-muted-foreground">
-          You currently have not made any todos yet
-        </p>
-      </div>
-    </div>
   );
 }

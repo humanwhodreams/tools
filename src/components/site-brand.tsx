@@ -10,9 +10,10 @@ export function SiteBrand({className}:Props) {
     <Image
       src={"/logo.svg"}
       alt="LST Logo from Logoipsum"
-      width={72}
+      width={0}
       height={0}
-      className={cn("h-auto object-contain", className)}
+      className={cn("w-20 h-auto object-contain", className)}
+      priority
     />
   );
 }

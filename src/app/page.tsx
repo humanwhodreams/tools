@@ -1,4 +1,4 @@
-import { BellRing, ListTodo, Split, TimerReset } from "lucide-react";
+import { BellRing, CircleArrowRight, ListTodo, Split, TimerReset } from "lucide-react";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
 
 import Link from "next/link";
@@ -31,10 +31,10 @@ const navs = [
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-screen items-center justify-center">
+    <main className="flex flex-col min-h-screen items-center md:justify-center p-2 sm:p-0">
       <section>
-        <div className="grid grid-cols-2 gap-2">
-          <div className="flex items-center gap-4 col-span-2 p-6 rounded-md bg-muted">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="flex items-center gap-4 col-span-1 md:col-span-2 p-6 rounded-md bg-muted">
             <SiteBrand />
             <div>
               <h1 className="font-bold text-4xl">lst.app</h1>
@@ -49,7 +49,10 @@ export default function Page() {
                 key={id}
                 href={nav.href}
                 className={cn(
-                  buttonVariants({ variant: "muted", className: "text-base" })
+                  buttonVariants({
+                    variant: "muted",
+                    className: "text-base col-span-1",
+                  })
                 )}
               >
                 <nav.icon className="w-5 h-5 mr-2 text-muted-foreground" />
@@ -62,7 +65,10 @@ export default function Page() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              buttonVariants({ variant: "ghost", className: "col-span-2" })
+              buttonVariants({
+                variant: "ghost",
+                className: "col-span-1 md:col-span-2",
+              })
             )}
           >
             Contribute on <FaGithub className="ml-2 w-4 h-4" />
@@ -72,12 +78,21 @@ export default function Page() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              buttonVariants({ variant: "ghost", className: "col-span-2" })
+              buttonVariants({
+                variant: "ghost",
+                className: "col-span-1 md:col-span-2",
+              })
             )}
           >
             Connect on <FaXTwitter className="ml-2 w-4 h-4" />
           </a>
-          <div className="text-center mt-6 text-sm text-muted-foreground col-span-2 font-medium">Made with love in <span className="fi fi-ng rounded-sm"></span></div>
+          <div className="text-center mt-6 text-sm text-muted-foreground col-span-1 space-y-2 md:col-span-2 font-medium">
+            Made with love in <span className="fi fi-ng rounded-sm"></span>
+            <Link href="/inspo" className="flex items-center justify-center text-muted-foreground hover:text-primary transition-colors text-sm font-medium group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 rounded-md py-1">
+              Inspiration
+              <CircleArrowRight className="ml-2 w-4 h-4 group-hover:-rotate-45 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
     </main>
